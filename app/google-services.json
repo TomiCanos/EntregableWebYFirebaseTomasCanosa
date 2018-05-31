@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "536709395612",
+    "firebase_url": "https://entregablewebyfirebase.firebaseio.com",
+    "project_id": "entregablewebyfirebase",
+    "storage_bucket": "entregablewebyfirebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:536709395612:android:bf2caddfe5140348",
+        "android_client_info": {
+          "package_name": "com.example.dh.entregableservicioswebyfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "536709395612-9c7s9gl4toqn9sk2egeoaugut0h2g730.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dh.entregableservicioswebyfirebase",
+            "certificate_hash": "1fc370a1b3008d04c31bc0547c1e5ac7166ed7fc"
+          }
+        },
+        {
+          "client_id": "536709395612-4gas8sv00oosq8ei1inmfjho4bre467f.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "536709395612-4gas8sv00oosq8ei1inmfjho4bre467f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKM9EaF1TWuORt0UzAFW-FykbALNZCzQA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "536709395612-4gas8sv00oosq8ei1inmfjho4bre467f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
