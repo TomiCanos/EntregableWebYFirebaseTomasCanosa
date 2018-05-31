@@ -1,0 +1,22 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context="com.example.dh.entregableservicioswebyfirebase.View.Home">
+
+    <ImageView
+        android:layout_margin="16dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:src="@drawable/moma"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_gravity="center"
+        android:id="@+id/recycler_view_paints"></android.support.v7.widget.RecyclerView>
+
+</android.support.design.widget.CoordinatorLayout>
