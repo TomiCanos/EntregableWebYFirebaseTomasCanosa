@@ -8,12 +8,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.dh.entregableservicioswebyfirebase.Controller.AdapterPaint;
 import com.example.dh.entregableservicioswebyfirebase.Controller.PaintController;
 import com.example.dh.entregableservicioswebyfirebase.Model.Paint;
 import com.example.dh.entregableservicioswebyfirebase.R;
 import com.example.dh.entregableservicioswebyfirebase.utils.ResultListener;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +28,7 @@ public class Home extends Fragment {
     private AdapterPaint adapterPaint;
     private List<Paint> listaPaints;
     private List<Paint> listaPaintsResultado;
+    private ImageView moma;
 
 
 
@@ -40,6 +44,14 @@ public class Home extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        moma = view.findViewById(R.id.drawable_moma_home_activity);
+        moma.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Toast.makeText(getContext(), "hola", Toast.LENGTH_SHORT).show();
+            }
+        });
         RecyclerView recyclerPaints  = view.findViewById(R.id.recycler_view_paints);
         recyclerPaints.setHasFixedSize(true);
         recyclerPaints.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));

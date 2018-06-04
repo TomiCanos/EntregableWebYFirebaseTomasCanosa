@@ -1,89 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/clown"
+    android:background="@drawable/gradient"
     tools:context=".View.Login">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="16dp"
-        android:src="@drawable/moma" />
-
-    <TextView
+    <LinearLayout
+        android:animateLayoutChanges="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="Login"
-        android:textColor="@color/blanco"
-        android:textSize="40dp"
-        android:textStyle="bold" />
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColorHint="@color/blanco">
+        <ImageView
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:src="@drawable/moma" />
 
-        <EditText
-            android:layout_margin="16dp"
-            android:id="@+id/fragment_login_email_adress"
+        <LinearLayout
+            android:id="@+id/linlay1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="email"
-            android:textColor="@color/blanco"
-            android:textSize="20dp" />
-    </android.support.design.widget.TextInputLayout>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColorHint="@color/blanco">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="Login"
+                android:textColor="@color/blanco"
+                android:textSize="40dp"
+                android:textStyle="bold" />
 
-        <EditText
-            android:inputType="textPassword"
-            android:layout_margin="16dp"
-            android:id="@+id/fragment_login_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="password"
-            android:textColor="@color/blanco"
-            android:textSize="20dp" />
-    </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blanco">
 
-    <Button
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:background="@color/transparente"
-        android:text="register"
-        android:id="@+id/fragment_login_button_register"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/fragment_login_email_adress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:hint="email"
+                    android:textColorHint="@color/blanco"
+                    android:textColor="@color/blanco"
+                    android:textSize="20dp" />
+            </android.support.design.widget.TextInputLayout>
 
-    <Button
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:background="@color/transparente"
-        android:text="login"
-        android:id="@+id/fragment_login_button_login"
-        android:layout_margin="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blanco">
 
-    <TextView
-        android:id="@+id/fragment_login_forgot_password"
-        android:layout_marginLeft="16dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/blanco"
-        android:text="Forgot your password?"/>
+                <EditText
+                    android:id="@+id/fragment_login_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:hint="password"
+                    android:textColorHint="@color/blanco"
+                    android:inputType="textPassword"
+                    android:textColor="@color/blanco"
+                    android:textSize="20dp" />
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/fragment_login_button_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/transparente"
+                android:text="register"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/blanco"/>
+
+            <Button
+                android:id="@+id/fragment_login_button_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="@color/transparente"
+                android:text="login"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/blanco"/>
+
+            <TextView
+                android:id="@+id/fragment_login_forgot_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="Forgot your password?"
+                android:textColor="@color/blanco" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 
-</LinearLayout>
+</RelativeLayout>
