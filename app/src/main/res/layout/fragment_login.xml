@@ -1,19 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/clown"
     tools:context=".View.Login">
 
-    <Button
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="16dp"
+        android:src="@drawable/moma" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button_login"/>
+        android:layout_margin="16dp"
+        android:text="Login"
+        android:textColor="@color/blanco"
+        android:textSize="40dp"
+        android:textStyle="bold" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/blanco">
+
+        <EditText
+            android:layout_margin="16dp"
+            android:id="@+id/fragment_login_email_adress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="email"
+            android:textColor="@color/blanco"
+            android:textSize="20dp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/blanco">
+
+        <EditText
+            android:inputType="textPassword"
+            android:layout_margin="16dp"
+            android:id="@+id/fragment_login_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="password"
+            android:textColor="@color/blanco"
+            android:textSize="20dp" />
+    </android.support.design.widget.TextInputLayout>
 
     <Button
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:background="@color/transparente"
+        android:text="register"
+        android:id="@+id/fragment_login_button_register"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:background="@color/transparente"
+        android:text="login"
+        android:id="@+id/fragment_login_button_login"
+        android:layout_margin="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/fragment_login_forgot_password"
+        android:layout_marginLeft="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button_signin"/>
+        android:textColor="@color/blanco"
+        android:text="Forgot your password?"/>
 
 
-</FrameLayout>
+</LinearLayout>

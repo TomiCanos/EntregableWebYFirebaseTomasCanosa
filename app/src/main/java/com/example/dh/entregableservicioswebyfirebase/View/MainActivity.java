@@ -19,19 +19,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
 
-        Home fragmentHome = new Home();
-
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.container_main_activity, fragmentHome);
+        if (mAuth.getCurrentUser() == null){
+            transaction.add(R.id.container_main_activity, new Home());
+        } else {
+            transaction.add(R.id.container_main_activity, new Login());
+        }
         transaction.commit();
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
     }
 
 }
