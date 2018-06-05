@@ -9,8 +9,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.dh.entregableservicioswebyfirebase.Model.Paint;
 import com.example.dh.entregableservicioswebyfirebase.R;
+import com.google.firebase.storage.StorageReference;
 
 import org.w3c.dom.Text;
 
@@ -23,6 +25,7 @@ import java.util.List;
 public class AdapterPaint extends RecyclerView.Adapter {
     private List<Paint> paintsAMostrar;
     private Context context;
+
 
     public AdapterPaint(List<Paint> paintsAMostrar, Context context) {
         this.paintsAMostrar = paintsAMostrar;
@@ -58,6 +61,8 @@ public class AdapterPaint extends RecyclerView.Adapter {
 
     private class ViewHolderPaint extends RecyclerView.ViewHolder {
         private TextView nombrePaint;
+        private String imageURL;
+        private ImageView imagePaint;
 
         public ViewHolderPaint(View itemView) {
             super(itemView);
@@ -67,6 +72,9 @@ public class AdapterPaint extends RecyclerView.Adapter {
         public void BindPaint (Paint paint){
 
             nombrePaint.setText(paint.getName());
+            imageURL = (paint.getImage());
+            //Glide.with(context).using(new FirebaseI);
+
         }
 
     }
