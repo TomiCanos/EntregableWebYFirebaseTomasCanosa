@@ -1,6 +1,7 @@
 package com.example.dh.entregableservicioswebyfirebase.View;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -29,7 +30,7 @@ public class Home extends Fragment {
     private List<Paint> listaPaints;
     private List<Paint> listaPaintsResultado;
     private ImageView moma;
-
+    private ReaccionadorDelLogout reaccionadorDelLogout;
 
 
     public Home() {
@@ -49,13 +50,13 @@ public class Home extends Fragment {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                Toast.makeText(getContext(), "hola", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Deslog", Toast.LENGTH_SHORT).show();
+                reaccionadorDelLogout.desloguear();
             }
         });
         RecyclerView recyclerPaints  = view.findViewById(R.id.recycler_view_paints);
         recyclerPaints.setHasFixedSize(true);
         recyclerPaints.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-
         adapterPaint = new AdapterPaint(crearListaPaints());
 
         recyclerPaints.setAdapter(adapterPaint);
@@ -82,4 +83,13 @@ public class Home extends Fragment {
         return listaPaints;
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        reaccionadorDelLogout = (ReaccionadorDelLogout) context;
+    }
+
+    public interface ReaccionadorDelLogout {
+        public void desloguear();
+    }
 }

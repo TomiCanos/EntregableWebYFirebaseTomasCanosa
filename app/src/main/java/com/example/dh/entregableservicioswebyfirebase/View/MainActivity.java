@@ -10,7 +10,7 @@ import com.example.dh.entregableservicioswebyfirebase.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity implements Login.ReaccionadorDelUsuario {
+public class MainActivity extends AppCompatActivity implements Login.ReaccionadorDelUsuario, Home.ReaccionadorDelLogout {
     private FirebaseAuth mAuth;
 
     @Override
@@ -34,5 +34,14 @@ public class MainActivity extends AppCompatActivity implements Login.Reaccionado
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.replace(R.id.container_main_activity, new Home());
+        transaction.commit();
+    }
+
+    @Override
+    public void desloguear() {
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.container_main_activity, new Login());
+        transaction.commit();
     }
 }
