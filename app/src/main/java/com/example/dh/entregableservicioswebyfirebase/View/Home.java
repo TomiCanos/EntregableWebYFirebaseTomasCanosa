@@ -17,6 +17,7 @@ import com.example.dh.entregableservicioswebyfirebase.Controller.PaintController
 import com.example.dh.entregableservicioswebyfirebase.Model.Paint;
 import com.example.dh.entregableservicioswebyfirebase.R;
 import com.example.dh.entregableservicioswebyfirebase.utils.ResultListener;
+import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
@@ -31,6 +32,7 @@ public class Home extends Fragment {
     private List<Paint> listaPaintsResultado;
     private ImageView moma;
     private ReaccionadorDelLogout reaccionadorDelLogout;
+    private PasadorDeLaPaintADetalle pasadorDeLaPaintADetalle;
 
 
     public Home() {
@@ -50,6 +52,7 @@ public class Home extends Fragment {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
+                LoginManager.getInstance().logOut();
                 Toast.makeText(getContext(), "Deslog", Toast.LENGTH_SHORT).show();
                 reaccionadorDelLogout.desloguear();
             }
@@ -57,7 +60,12 @@ public class Home extends Fragment {
         RecyclerView recyclerPaints  = view.findViewById(R.id.recycler_view_paints);
         recyclerPaints.setHasFixedSize(true);
         recyclerPaints.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        adapterPaint = new AdapterPaint(crearListaPaints());
+        adapterPaint = new AdapterPaint(crearListaPaints(), new AdapterPaint.NotificableDelClickEnPaint() {
+            @Override
+            public void abrirDetallePaintClickeada(List<Paint> listaPaints, Integer positionPaint) {
+                pasadorDeLaPaintADetalle.pasarPaint(listaPaints, positionPaint);
+            }
+        });
 
         recyclerPaints.setAdapter(adapterPaint);
         return view;
@@ -87,9 +95,14 @@ public class Home extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         reaccionadorDelLogout = (ReaccionadorDelLogout) context;
+        pasadorDeLaPaintADetalle = (PasadorDeLaPaintADetalle) context;
     }
 
     public interface ReaccionadorDelLogout {
         public void desloguear();
+    }
+
+    public interface PasadorDeLaPaintADetalle {
+        public void pasarPaint (List<Paint> listaPaints, Integer positionPaint);
     }
 }

@@ -24,12 +24,12 @@ import java.util.List;
 
 public class AdapterPaint extends RecyclerView.Adapter {
     private List<Paint> paintsAMostrar;
-    private Context context;
+    private NotificableDelClickEnPaint notificableDelClickEnPaint;
 
 
-    public AdapterPaint(List<Paint> paintsAMostrar, Context context) {
+    public AdapterPaint(List<Paint> paintsAMostrar, NotificableDelClickEnPaint notificableDelClickEnPaint) {
         this.paintsAMostrar = paintsAMostrar;
-        this.context = context;
+        this.notificableDelClickEnPaint = notificableDelClickEnPaint;
     }
 
     public AdapterPaint(List<Paint> paintsAMostrar) {
@@ -67,6 +67,13 @@ public class AdapterPaint extends RecyclerView.Adapter {
         public ViewHolderPaint(View itemView) {
             super(itemView);
             nombrePaint = itemView.findViewById(R.id.txtview_nombre_paint);
+
+            nombrePaint.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    notificableDelClickEnPaint.abrirDetallePaintClickeada(paintsAMostrar, getAdapterPosition());
+                }
+            });
         }
 
         public void BindPaint (Paint paint){
@@ -76,6 +83,9 @@ public class AdapterPaint extends RecyclerView.Adapter {
             //Glide.with(context).using(new FirebaseI);
 
         }
+    }
 
+    public interface NotificableDelClickEnPaint {
+       public void abrirDetallePaintClickeada(List<Paint> listaPaints, Integer positionPaint);
     }
 }

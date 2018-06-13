@@ -1,11 +1,13 @@
 package com.example.dh.entregableservicioswebyfirebase.Model;
 
 
+import java.io.Serializable;
+
 /**
  * Created by DH on 30/5/2018.
  */
 
-public class Paint {
+public class Paint implements Serializable{
     private String image;
     private String name;
     private Integer artistId;
