@@ -73,10 +73,7 @@
                 android:id="@+id/fragment_login_button_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_margin="16dp"
                 android:background="@color/transparente"
                 android:text="register"
                 android:textSize="20dp"
@@ -87,7 +84,8 @@
                 android:id="@+id/fragment_login_button_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
                 android:background="@color/transparente"
                 android:text="login"
                 android:textSize="20dp"
@@ -101,6 +99,12 @@
                 android:layout_marginLeft="16dp"
                 android:text="Forgot your password?"
                 android:textColor="@color/blanco" />
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/login_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="16dp" />
 
         </LinearLayout>
 
