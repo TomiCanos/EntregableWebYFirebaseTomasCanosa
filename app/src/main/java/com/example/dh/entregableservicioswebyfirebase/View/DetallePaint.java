@@ -21,6 +21,10 @@ public class DetallePaint extends Fragment {
     public static final String ID_PAINT = "ID_PAINT";
 
     private TextView tituloPaint;
+    private TextView artistId;
+    private TextView artistName;
+    private TextView artistNationality;
+    private TextView artistInfluencedBy;
     private Paint paint;
 
     public DetallePaint() {
@@ -35,9 +39,27 @@ public class DetallePaint extends Fragment {
         View view = inflater.inflate(R.layout.fragment_detalle_paint, container, false);
 
         tituloPaint = view.findViewById(R.id.txtview_fragment_detalle_paint_name);
+        artistId = view.findViewById(R.id.txtview_fragment_detalle_artist_id);
+        artistName = view.findViewById(R.id.txtview_fragment_detalle_artist_name);
+        artistNationality = view.findViewById(R.id.txtview_fragment_detalle_artist_nationality);
+        artistInfluencedBy = view.findViewById(R.id.txtview_fragment_detalle_artist_influenced_by);
 
         Bundle bundle = getArguments();
         paint = (Paint) bundle.getSerializable(ID_PAINT);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReference();
+
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                dataSnapshot.child("artists").getChildren();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         tituloPaint.setText(paint.getName());
         return view;
