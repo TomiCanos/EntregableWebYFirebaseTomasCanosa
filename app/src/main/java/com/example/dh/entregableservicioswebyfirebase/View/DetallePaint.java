@@ -8,7 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.dh.entregableservicioswebyfirebase.Controller.DAOArtist;
 import com.example.dh.entregableservicioswebyfirebase.Model.Artista;
+import com.example.dh.entregableservicioswebyfirebase.Model.ArtistaContainer;
 import com.example.dh.entregableservicioswebyfirebase.Model.Paint;
 import com.example.dh.entregableservicioswebyfirebase.R;
 import com.google.firebase.database.DataSnapshot;
@@ -18,7 +20,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.security.PublicKey;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,6 +30,7 @@ import java.util.HashMap;
 public class DetallePaint extends Fragment {
 
     public static final String ID_PAINT = "ID_PAINT";
+    public static final String ID_ARTIST = "ID_ARTIST";
 
     private TextView tituloPaint;
     private TextView artistId;
@@ -53,26 +58,16 @@ public class DetallePaint extends Fragment {
 
         Bundle bundle = getArguments();
         paint = (Paint) bundle.getSerializable(ID_PAINT);
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference reference = database.getReference();
 
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-               Artista artista =  dataSnapshot.child("artists").child(paint.getArtistId().toString()).getValue(Artista.class);
-               artistName.setText(artista.getName());
-               artistId.setText(artista.getArtistId());
-               artistNationality.setText(artista.getNationality());
-               artistInfluencedBy.setText(artista.getInfluenced_by());
-            }
+        DAOArtist daoArtist = new DAOArtist();
+        List<Artista> asd = new ArrayList<>();
+        asd.addAll(daoArtist.getArtist());
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-        tituloPaint.setText(paint.getName());
+        /*artistId.setText(artista.getArtistId());
+        artistName.setText(artista.getName());
+        artistNationality.setText(artista.getNationality());
+        artistInfluencedBy.setText(artista.getInfluenced_by());
+        tituloPaint.setText(paint.getName());*/
         return view;
     }
 

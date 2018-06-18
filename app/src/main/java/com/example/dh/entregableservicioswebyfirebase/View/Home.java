@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.dh.entregableservicioswebyfirebase.Controller.AdapterPaint;
+import com.example.dh.entregableservicioswebyfirebase.Controller.DAOArtist;
 import com.example.dh.entregableservicioswebyfirebase.Controller.PaintController;
 import com.example.dh.entregableservicioswebyfirebase.Model.Paint;
 import com.example.dh.entregableservicioswebyfirebase.R;
@@ -72,7 +73,7 @@ public class Home extends Fragment {
     }
 
     private List<Paint> crearListaPaints() {
-        if (listaPaints.size() == 0){
+        if (listaPaints.size() == 0){ ;
             PaintController paintController = new PaintController();
 
             paintController.obtenerPaints(new ResultListener<List<Paint>>() {

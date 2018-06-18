@@ -5,6 +5,8 @@ import android.util.Log;
 import com.example.dh.entregableservicioswebyfirebase.Model.Paint;
 import com.example.dh.entregableservicioswebyfirebase.Model.PaintsContainer;
 import com.example.dh.entregableservicioswebyfirebase.utils.ResultListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.Console;
 import java.util.List;
