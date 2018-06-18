@@ -12,6 +12,7 @@
         android:layout_height="0dp"
         android:layout_gravity="center"
         android:layout_weight="1"
+        android:textSize="30dp"
         android:gravity="center"
         android:textColor="@color/blanco"
         android:textStyle="bold" />

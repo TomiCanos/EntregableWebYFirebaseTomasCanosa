@@ -17,19 +17,19 @@ public class DAOArtist {
     public DAOArtist() {
     }
 
-    public void obtenerArtistsAsincronico(final ResultListener<List<Artista>> escuchadorDelControlador) {
+    public void obtenerArtistporIdAsincronico(final Integer id, final ResultListener<Artista> escuchadorDelControlador) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference();
-        final List <Artista> artistaList = new ArrayList<>();
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot datasnapshot : dataSnapshot.child("artists").getChildren()) {
                         Artista artista = datasnapshot.getValue(Artista.class);
 
-                        artistaList.add(artista);
+                        if (artista.getArtistId().equals(id.toString())){
+                            escuchadorDelControlador.finish(artista);
+                        }
                 }
-                escuchadorDelControlador.finish(artistaList);
             }
 
             @Override

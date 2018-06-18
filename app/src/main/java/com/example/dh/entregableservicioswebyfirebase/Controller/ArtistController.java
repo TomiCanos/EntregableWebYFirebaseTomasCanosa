@@ -15,18 +15,14 @@ public class ArtistController {
 
     private Boolean hayInternet() {return true;}
 
-    public void obtenerArtists(final ResultListener<List<Artista>> escuchadorDeLaVista){
-        if (hayInternet()){
-            DAOArtist daoArtist = new DAOArtist();
-            daoArtist.obtenerArtistsAsincronico(new ResultListener<List<Artista>>() {
-                @Override
-                public void finish(List<Artista> resultado) {
-                    escuchadorDeLaVista.finish(resultado);
-                }
-            });
-        } else {
-            Log.d("Internet", "no hay internet");
-        }
+    public void obtenerArtists(Integer id, final ResultListener<Artista> escuchadorDeLaVista){
+        DAOArtist daoArtist = new DAOArtist();
+        daoArtist.obtenerArtistporIdAsincronico(id, new ResultListener<Artista>() {
+            @Override
+            public void finish(Artista resultado) {
+                escuchadorDeLaVista.finish(resultado);
+            }
+        });
     }
 
 }

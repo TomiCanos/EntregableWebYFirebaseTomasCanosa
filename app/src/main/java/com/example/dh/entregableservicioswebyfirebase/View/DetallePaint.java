@@ -3,16 +3,20 @@ package com.example.dh.entregableservicioswebyfirebase.View;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.ContentLoadingProgressBar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.dh.entregableservicioswebyfirebase.Controller.ArtistController;
 import com.example.dh.entregableservicioswebyfirebase.Controller.DAOArtist;
 import com.example.dh.entregableservicioswebyfirebase.Model.Artista;
 import com.example.dh.entregableservicioswebyfirebase.Model.ArtistaContainer;
 import com.example.dh.entregableservicioswebyfirebase.Model.Paint;
 import com.example.dh.entregableservicioswebyfirebase.R;
+import com.example.dh.entregableservicioswebyfirebase.utils.ResultListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,7 +34,6 @@ import java.util.List;
 public class DetallePaint extends Fragment {
 
     public static final String ID_PAINT = "ID_PAINT";
-    public static final String ID_ARTIST = "ID_ARTIST";
 
     private TextView tituloPaint;
     private TextView artistId;
@@ -58,12 +61,18 @@ public class DetallePaint extends Fragment {
 
         Bundle bundle = getArguments();
         paint = (Paint) bundle.getSerializable(ID_PAINT);
+        ArtistController artistController = new ArtistController();
+        artistController.obtenerArtists(paint.getArtistId(), new ResultListener<Artista>() {
+            @Override
+            public void finish(Artista resultado) {
+                artistId.setText("Artist's ID: " + resultado.getArtistId());
+                artistName.setText("Artist: " + resultado.getName());
+                artistNationality.setText("Nacionality: " + resultado.getNationality());
+                artistInfluencedBy.setText("Influenced by: " + resultado.getInfluenced_by());
+            }
+        });
 
-        /*artistId.setText(artista.getArtistId());
-        artistName.setText(artista.getName());
-        artistNationality.setText(artista.getNationality());
-        artistInfluencedBy.setText(artista.getInfluenced_by());
-        tituloPaint.setText(paint.getName());*/
+        tituloPaint.setText(paint.getName());
         return view;
     }
 
