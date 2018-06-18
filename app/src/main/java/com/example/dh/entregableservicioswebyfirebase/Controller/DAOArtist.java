@@ -2,6 +2,7 @@ package com.example.dh.entregableservicioswebyfirebase.Controller;
 
 import com.example.dh.entregableservicioswebyfirebase.Model.Artista;
 import com.example.dh.entregableservicioswebyfirebase.Model.ArtistaContainer;
+import com.example.dh.entregableservicioswebyfirebase.utils.ResultListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -12,30 +13,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DAOArtist {
+
     public DAOArtist() {
     }
 
-    /*public Artista getArtistaById(Integer id){
-        Artista artistaFinal = new Artista();
-        for (Artista artista : artistas) {
-            if (id.toString().equals(artista.getArtistId())){
-                 artistaFinal = artista;
-            }
-        }
-        return artistaFinal;
-    }*/
-
-    public List<Artista> getArtist() {
+    public void obtenerArtistsAsincronico(final ResultListener<List<Artista>> escuchadorDelControlador) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference();
         final List <Artista> artistaList = new ArrayList<>();
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-               /* ArtistaContainer artistas = dataSnapshot.child("artists").getValue(ArtistaContainer.class);
-                for (Artista artista : artistas) {
-                    artistaList.add(artista);
-                }*/
+                for (DataSnapshot datasnapshot : dataSnapshot.child("artists").getChildren()) {
+                        Artista artista = datasnapshot.getValue(Artista.class);
+
+                        artistaList.add(artista);
+                }
+                escuchadorDelControlador.finish(artistaList);
             }
 
             @Override
@@ -43,6 +37,6 @@ public class DAOArtist {
 
             }
         });
-        return artistaList;
     }
+
 }

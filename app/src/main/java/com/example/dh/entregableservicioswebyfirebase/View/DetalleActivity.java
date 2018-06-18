@@ -11,7 +11,7 @@ import com.example.dh.entregableservicioswebyfirebase.R;
 
 import java.util.List;
 
-public class LoginActivity extends AppCompatActivity {
+public class DetalleActivity extends AppCompatActivity {
 
     public static final String CLAVE_PAINT = "CLAVE_PAINT";
     public static final String CLAVE_POSITION = "CLAVE_POSITION";

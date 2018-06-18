@@ -59,10 +59,6 @@ public class DetallePaint extends Fragment {
         Bundle bundle = getArguments();
         paint = (Paint) bundle.getSerializable(ID_PAINT);
 
-        DAOArtist daoArtist = new DAOArtist();
-        List<Artista> asd = new ArrayList<>();
-        asd.addAll(daoArtist.getArtist());
-
         /*artistId.setText(artista.getArtistId());
         artistName.setText(artista.getName());
         artistNationality.setText(artista.getNationality());

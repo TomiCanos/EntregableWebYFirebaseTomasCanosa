@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.dh.entregableservicioswebyfirebase.Controller.AdapterPaint;
 import com.example.dh.entregableservicioswebyfirebase.Controller.DAOArtist;
 import com.example.dh.entregableservicioswebyfirebase.Controller.PaintController;
+import com.example.dh.entregableservicioswebyfirebase.Model.Artista;
 import com.example.dh.entregableservicioswebyfirebase.Model.Paint;
 import com.example.dh.entregableservicioswebyfirebase.R;
 import com.example.dh.entregableservicioswebyfirebase.utils.ResultListener;
@@ -106,4 +107,5 @@ public class Home extends Fragment {
     public interface PasadorDeLaPaintADetalle {
         public void pasarPaint (List<Paint> listaPaints, Integer positionPaint);
     }
+
 }
