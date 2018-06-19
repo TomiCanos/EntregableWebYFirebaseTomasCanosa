@@ -9,60 +9,66 @@
     <TextView
         android:id="@+id/txtview_fragment_detalle_paint_name"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_weight="1"
+        android:gravity="center"
+        android:textColor="@color/blanco"
         android:textSize="30dp"
-        android:gravity="center"
-        android:textColor="@color/blanco"
         android:textStyle="bold" />
 
-    <ImageView
-        android:id="@+id/imgview_fragment_detalle"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="10"
-        android:padding="30dp"
-        android:scaleType="fitXY"
-        android:src="@color/blanco" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/txtview_fragment_detalle_artist_name"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:textColor="@color/blanco"
-        android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/imgview_fragment_detalle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10"
+            android:padding="30dp"
+            android:scaleType="fitXY"
+            android:src="@color/blanco" />
 
-    <TextView
-        android:id="@+id/txtview_fragment_detalle_artist_nationality"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:textColor="@color/blanco"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/txtview_fragment_detalle_artist_name"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/blanco"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/txtview_fragment_detalle_artist_influenced_by"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:textColor="@color/blanco"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/txtview_fragment_detalle_artist_nationality"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/blanco"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/txtview_fragment_detalle_artist_id"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:textColor="@color/blanco"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/txtview_fragment_detalle_artist_influenced_by"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/blanco"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtview_fragment_detalle_artist_id"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/blanco"
+            android:textStyle="bold" />
+    </LinearLayout>
+
 </LinearLayout>

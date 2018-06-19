@@ -2,6 +2,7 @@ package com.example.dh.entregableservicioswebyfirebase.Controller;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.dh.entregableservicioswebyfirebase.Model.Paint;
 import com.example.dh.entregableservicioswebyfirebase.R;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
+import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import org.w3c.dom.Text;
@@ -63,12 +66,14 @@ public class AdapterPaint extends RecyclerView.Adapter {
         private TextView nombrePaint;
         private String imageURL;
         private ImageView imagePaint;
+        private View view;
 
         public ViewHolderPaint(View itemView) {
             super(itemView);
             nombrePaint = itemView.findViewById(R.id.txtview_nombre_paint);
-
-            nombrePaint.setOnClickListener(new View.OnClickListener() {
+            imagePaint = itemView.findViewById(R.id.imgview_celda_recycler);
+            view = itemView;
+            imagePaint.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     notificableDelClickEnPaint.abrirDetallePaintClickeada(paintsAMostrar, getAdapterPosition());
@@ -76,16 +81,21 @@ public class AdapterPaint extends RecyclerView.Adapter {
             });
         }
 
-        public void BindPaint (Paint paint){
+        public void BindPaint(Paint paint) {
 
             nombrePaint.setText(paint.getName());
             imageURL = (paint.getImage());
-            //Glide.with(context).using(new FirebaseI);
+            FirebaseStorage storage = FirebaseStorage.getInstance();
+            StorageReference reference = storage.getReference();
+            reference = reference.child(imageURL);
+            Glide.with(view.getContext()).using(new FirebaseImageLoader())
+                    .load(reference)
+                    .into(imagePaint);
 
         }
     }
 
     public interface NotificableDelClickEnPaint {
-       public void abrirDetallePaintClickeada(List<Paint> listaPaints, Integer positionPaint);
+        public void abrirDetallePaintClickeada(List<Paint> listaPaints, Integer positionPaint);
     }
 }

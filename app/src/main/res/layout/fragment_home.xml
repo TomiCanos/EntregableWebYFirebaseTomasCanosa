@@ -1,4 +1,5 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,18 +8,27 @@
 
     <ImageView
         android:id="@+id/drawable_moma_home_activity"
-        android:layout_margin="16dp"
-        android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:src="@drawable/moma"
-        />
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="16dp"
+        android:src="@drawable/moma" />
 
     <android.support.v7.widget.RecyclerView
-        android:background="@color/transparente"
+        android:id="@+id/recycler_view_paints"
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:layout_gravity="center"
-        android:id="@+id/recycler_view_paints"></android.support.v7.widget.RecyclerView>
+        android:background="@color/transparente"></android.support.v7.widget.RecyclerView>
 
+    <TextView
+        android:id="@+id/txtview_logout_from_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="10dp"
+        android:text="LOGOUT"
+        android:textColor="@color/blanco"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 </android.support.design.widget.CoordinatorLayout>

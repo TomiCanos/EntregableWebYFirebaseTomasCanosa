@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rlay"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/rlay"
     android:background="@drawable/gradient"
     tools:context=".View.Login">
 
     <LinearLayout
-        android:animateLayoutChanges="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:animateLayoutChanges="true"
         android:orientation="vertical">
 
         <ImageView
-            android:layout_marginRight="16dp"
-            android:layout_marginLeft="16dp"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:src="@drawable/moma" />
 
         <LinearLayout
@@ -48,8 +48,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:hint="email"
-                    android:textColorHint="@color/blanco"
                     android:textColor="@color/blanco"
+                    android:textColorHint="@color/blanco"
                     android:textSize="20dp" />
             </android.support.design.widget.TextInputLayout>
 
@@ -64,9 +64,9 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:hint="password"
-                    android:textColorHint="@color/blanco"
                     android:inputType="textPassword"
                     android:textColor="@color/blanco"
+                    android:textColorHint="@color/blanco"
                     android:textSize="20dp" />
             </android.support.design.widget.TextInputLayout>
 
@@ -77,9 +77,9 @@
                 android:layout_margin="16dp"
                 android:background="@color/transparente"
                 android:text="register"
+                android:textColor="@color/blanco"
                 android:textSize="20dp"
-                android:textStyle="bold"
-                android:textColor="@color/blanco"/>
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/fragment_login_button_login"
@@ -89,9 +89,9 @@
                 android:layout_marginRight="16dp"
                 android:background="@color/transparente"
                 android:text="login"
+                android:textColor="@color/blanco"
                 android:textSize="20dp"
-                android:textStyle="bold"
-                android:textColor="@color/blanco"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/fragment_login_forgot_password"
@@ -100,6 +100,7 @@
                 android:layout_marginLeft="16dp"
                 android:text="Forgot your password?"
                 android:textColor="@color/blanco" />
+
             <com.facebook.login.widget.LoginButton
                 android:id="@+id/login_button"
                 android:layout_width="match_parent"

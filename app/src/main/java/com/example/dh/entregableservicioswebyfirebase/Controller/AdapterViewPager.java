@@ -18,7 +18,7 @@ public class AdapterViewPager extends FragmentStatePagerAdapter {
 
     private List<Fragment> paintsListFragment;
 
-    public AdapterViewPager (FragmentManager fm, List<Paint> paintsList){
+    public AdapterViewPager(FragmentManager fm, List<Paint> paintsList) {
         super(fm);
         paintsListFragment = new ArrayList<>();
 

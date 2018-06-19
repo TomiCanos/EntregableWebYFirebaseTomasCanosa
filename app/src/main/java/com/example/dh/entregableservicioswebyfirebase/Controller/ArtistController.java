@@ -13,9 +13,11 @@ import java.util.List;
 
 public class ArtistController {
 
-    private Boolean hayInternet() {return true;}
+    private Boolean hayInternet() {
+        return true;
+    }
 
-    public void obtenerArtists(Integer id, final ResultListener<Artista> escuchadorDeLaVista){
+    public void obtenerArtists(Integer id, final ResultListener<Artista> escuchadorDeLaVista) {
         DAOArtist daoArtist = new DAOArtist();
         daoArtist.obtenerArtistporIdAsincronico(id, new ResultListener<Artista>() {
             @Override

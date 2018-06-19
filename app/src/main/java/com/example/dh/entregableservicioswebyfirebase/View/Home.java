@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dh.entregableservicioswebyfirebase.Controller.AdapterPaint;
@@ -32,14 +33,14 @@ public class Home extends Fragment {
     private AdapterPaint adapterPaint;
     private List<Paint> listaPaints;
     private List<Paint> listaPaintsResultado;
-    private ImageView moma;
+    private TextView logout;
     private ReaccionadorDelLogout reaccionadorDelLogout;
     private PasadorDeLaPaintADetalle pasadorDeLaPaintADetalle;
 
 
     public Home() {
-       listaPaints = new ArrayList<>();
-       listaPaintsResultado = new ArrayList<>();
+        listaPaints = new ArrayList<>();
+        listaPaintsResultado = new ArrayList<>();
     }
 
 
@@ -49,8 +50,8 @@ public class Home extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        moma = view.findViewById(R.id.drawable_moma_home_activity);
-        moma.setOnClickListener(new View.OnClickListener() {
+        logout = view.findViewById(R.id.txtview_logout_from_home);
+        logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
@@ -59,7 +60,7 @@ public class Home extends Fragment {
                 reaccionadorDelLogout.desloguear();
             }
         });
-        RecyclerView recyclerPaints  = view.findViewById(R.id.recycler_view_paints);
+        RecyclerView recyclerPaints = view.findViewById(R.id.recycler_view_paints);
         recyclerPaints.setHasFixedSize(true);
         recyclerPaints.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         adapterPaint = new AdapterPaint(crearListaPaints(), new AdapterPaint.NotificableDelClickEnPaint() {
@@ -74,7 +75,8 @@ public class Home extends Fragment {
     }
 
     private List<Paint> crearListaPaints() {
-        if (listaPaints.size() == 0){ ;
+        if (listaPaints.size() == 0) {
+            ;
             PaintController paintController = new PaintController();
 
             paintController.obtenerPaints(new ResultListener<List<Paint>>() {
@@ -105,7 +107,7 @@ public class Home extends Fragment {
     }
 
     public interface PasadorDeLaPaintADetalle {
-        public void pasarPaint (List<Paint> listaPaints, Integer positionPaint);
+        public void pasarPaint(List<Paint> listaPaints, Integer positionPaint);
     }
 
 }

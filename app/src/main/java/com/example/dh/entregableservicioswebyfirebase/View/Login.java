@@ -13,6 +13,7 @@ import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
+
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -54,7 +55,6 @@ public class Login extends Fragment {
     private ReaccionadorDelUsuario reaccionadorDelUsuario;
 
 
-
     public Login() {
         // Required empty public constructor
     }
@@ -81,7 +81,7 @@ public class Login extends Fragment {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = mAuth.getCurrentUser();
-                if (user != null){
+                if (user != null) {
                     reaccionadorDelUsuario.succesfull();
                 }
             }
@@ -92,7 +92,7 @@ public class Login extends Fragment {
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-            linearLayout.setVisibility(view.VISIBLE);
+                linearLayout.setVisibility(view.VISIBLE);
             }
         };
 
@@ -129,12 +129,12 @@ public class Login extends Fragment {
             public void onClick(View v) {
                 String emailString = email.getText().toString();
                 String passwordString = password.getText().toString();
-                if (emailString.isEmpty() && passwordString.isEmpty()){
+                if (emailString.isEmpty() && passwordString.isEmpty()) {
                     Toast.makeText(getContext(), "Enter your email and password", Toast.LENGTH_SHORT).show();
                     return;
-                } else if (!emailString.contains("@") && !emailString.contains(".com")){
+                } else if (!emailString.contains("@") && !emailString.contains(".com")) {
                     Toast.makeText(getContext(), "Enter a valid email adress", Toast.LENGTH_SHORT).show();
-                } else if (passwordString.length() < 6){
+                } else if (passwordString.length() < 6) {
                     Toast.makeText(getContext(), "Password must have at least 6 characters", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
@@ -149,12 +149,12 @@ public class Login extends Fragment {
             public void onClick(View v) {
                 String emailString = email.getText().toString();
                 String passwordString = password.getText().toString();
-                if (email.getText().toString().isEmpty() && passwordString.isEmpty()){
+                if (email.getText().toString().isEmpty() && passwordString.isEmpty()) {
                     Toast.makeText(getContext(), "Enter your email and password", Toast.LENGTH_SHORT).show();
                     return;
-                } else if (!emailString.contains("@") && !emailString.contains(".com")){
+                } else if (!emailString.contains("@") && !emailString.contains(".com")) {
                     Toast.makeText(getContext(), "Enter a valid email adress", Toast.LENGTH_SHORT).show();
-                } else if (passwordString.length() < 6){
+                } else if (passwordString.length() < 6) {
                     Toast.makeText(getContext(), "Password must have at least 6 characters", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
@@ -174,15 +174,15 @@ public class Login extends Fragment {
         return view;
     }
 
-    private void crearUsuario (String email, String password){
+    private void crearUsuario(String email, String password) {
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
+                if (task.isSuccessful()) {
                     Log.d("firebase", "createUserWithEmail:success");
                     FirebaseUser user = mAuth.getCurrentUser();
                     reaccionadorDelUsuario.succesfull();
-                }  else {
+                } else {
                     Log.w("firebase", "createUserWithEmail:failure", task.getException());
                     Toast.makeText(getContext(), "Authentication failed.",
                             Toast.LENGTH_SHORT).show();
@@ -191,11 +191,11 @@ public class Login extends Fragment {
         });
     }
 
-    private void loguearUsuario (String email, String password){
+    private void loguearUsuario(String email, String password) {
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
+                if (task.isSuccessful()) {
                     Log.d("firebase", "signInWithEmail:success");
                     FirebaseUser user = mAuth.getCurrentUser();
                     reaccionadorDelUsuario.succesfull();
@@ -213,7 +213,7 @@ public class Login extends Fragment {
         mAuth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if (!task.isSuccessful()){
+                if (!task.isSuccessful()) {
                     Toast.makeText(getContext(), "ERROR LOGIN", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -232,7 +232,7 @@ public class Login extends Fragment {
         reaccionadorDelUsuario = (ReaccionadorDelUsuario) context;
     }
 
-    public interface ReaccionadorDelUsuario{
+    public interface ReaccionadorDelUsuario {
         public void succesfull();
     }
 

@@ -34,7 +34,7 @@ public class DAOPaint {
     private StorageReference mStorageRef;
     private Retrofit retrofit;
 
-    public DAOPaint(){
+    public DAOPaint() {
 
         mStorageRef = FirebaseStorage.getInstance().getReference();
 
@@ -64,22 +64,4 @@ public class DAOPaint {
         });
     }
 
-    /*public void obtenerImagenPaintAsincronico (String paintImagen, final ResultListener<Drawable> escuchadorDelControlador) throws IOException {
-            FirebaseStorage storage = FirebaseStorage.getInstance();
-            StorageReference reference = storage.getReference();
-            reference = reference.child(paintImagen);
-
-            try {
-                final File archivo = File.createTempFile("fotoandroid", "jpg");
-                reference.getFile(archivo).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
-
-                        Picasso.get().load(archivo.getAbsoluteFile()).into(imagenContacto);
-                    }
-                });
-            } catch (Exception e) {
-
-            }
-    }*/
 }

@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="250dp"
     android:layout_height="409dp"
     android:background="@color/transparente">
-<RelativeLayout
-    android:background="@color/blanco"
-    android:layout_centerInParent="true"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/transparente">
+
+        <ImageView
+            android:id="@+id/imgview_celda_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY" />
 
         <TextView
-            android:gravity="center"
-            android:background="@color/transparente"
             android:id="@+id/txtview_nombre_paint"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:textStyle="bold"
-            android:layout_centerVertical="true"/>
+            android:layout_height="70dp"
+            android:background="@drawable/greygradient"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textAllCaps="true"
+            android:textColor="@color/blanco"
+            android:textStyle="bold" />
 
-</RelativeLayout>
+    </RelativeLayout>
 
 
 </RelativeLayout>

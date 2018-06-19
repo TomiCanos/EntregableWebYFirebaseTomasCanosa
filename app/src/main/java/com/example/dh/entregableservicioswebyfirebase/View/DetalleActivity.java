@@ -29,7 +29,7 @@ public class DetalleActivity extends AppCompatActivity {
         Integer positionAdapter = bundle.getInt(CLAVE_POSITION);
         List<Paint> paintsList = (List<Paint>) bundle.getSerializable(CLAVE_PAINT);
 
-        AdapterViewPager adapterViewPager = new AdapterViewPager (getSupportFragmentManager(), paintsList);
+        AdapterViewPager adapterViewPager = new AdapterViewPager(getSupportFragmentManager(), paintsList);
 
         viewPager.setAdapter(adapterViewPager);
         viewPager.setCurrentItem(positionAdapter);

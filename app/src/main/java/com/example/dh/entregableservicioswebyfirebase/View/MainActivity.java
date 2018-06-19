@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements Login.Reaccionado
 
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        if (mAuth.getCurrentUser() == null){
+        if (mAuth.getCurrentUser() == null) {
             transaction.add(R.id.container_main_activity, new Login());
         } else {
             transaction.add(R.id.container_main_activity, new Home());

@@ -18,7 +18,7 @@ public class PaintController {
         return true;
     }
 
-    public void obtenerPaints(final ResultListener<List<Paint>> escuchadorDeLaVista){
+    public void obtenerPaints(final ResultListener<List<Paint>> escuchadorDeLaVista) {
         if (hayInternet()) {
             DAOPaint daoPaint = new DAOPaint();
 
@@ -33,15 +33,4 @@ public class PaintController {
         }
     }
 
-    /*public  void obtenerImagenPaint(String paintImagen, final ResultListener<Drawable> escuchadorDeLaVista){
-        if (hayInternet()){
-            DAOPaint daoPaint = new DAOPaint();
-            daoPaint.obtenerImagenPaintAsincronico(paintImagen, new ResultListener<Drawable>() {
-                @Override
-                public void finish(Drawable resultado) {
-                    escuchadorDeLaVista.finish(resultado);
-                }
-            });
-        }
-    }*/
 }
