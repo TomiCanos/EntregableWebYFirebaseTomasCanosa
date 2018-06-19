@@ -1,5 +1,6 @@
 package com.example.dh.entregableservicioswebyfirebase.Controller;
 
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 
 import com.example.dh.entregableservicioswebyfirebase.Model.Paint;
@@ -31,4 +32,16 @@ public class PaintController {
             Log.d("Internet", "No hay Internet");
         }
     }
+
+    /*public  void obtenerImagenPaint(String paintImagen, final ResultListener<Drawable> escuchadorDeLaVista){
+        if (hayInternet()){
+            DAOPaint daoPaint = new DAOPaint();
+            daoPaint.obtenerImagenPaintAsincronico(paintImagen, new ResultListener<Drawable>() {
+                @Override
+                public void finish(Drawable resultado) {
+                    escuchadorDeLaVista.finish(resultado);
+                }
+            });
+        }
+    }*/
 }
